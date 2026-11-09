@@ -1,9 +1,9 @@
-import { Text, View, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
-export default function Index() {
+export default function AnalysisScreen() {
   return (
     <View style={styles.container}>
-      <Text>Edit src/app/index.tsx to edit this screen.</Text>
+      <Text>분석</Text>
     </View>
   );
 }
