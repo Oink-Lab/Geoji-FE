@@ -1,4 +1,6 @@
+import { colors, fonts, radius } from "@/constants/theme";
 import { Tabs } from "expo-router/js-tabs";
+import { Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import {
@@ -9,9 +11,8 @@ import {
   SettingsIcon,
 } from "@/components/icons/tab-icons";
 
-// 탭 아이콘 색 (Figma 기준, 1-4에서 테마 파일로 옮길 예정)
-const ICON_ACTIVE = "#C9466A";   // 선택된 탭: 진한 분홍
-const ICON_INACTIVE = "#E7A9B6"; // 선택 안 된 탭: 연분홍
+const ICON_ACTIVE = colors.primary;   // 선택된 탭: 진한 분홍
+const ICON_INACTIVE = colors.primaryLight; // 선택 안 된 탭: 연분홍
 
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
@@ -25,14 +26,26 @@ export default function TabLayout() {
           bottom: Math.max(insets.bottom, 17),
           marginHorizontal: 15,
           height: 68,
-          borderRadius: 34,
-          backgroundColor: "#FDE8EB",
+          borderRadius: radius.pill,
+          backgroundColor: colors.pinkSoft,
           borderTopWidth: 0,
           elevation: 0,
         },
+        // 탭 글자를 직접 그림: 선택된 탭은 Bold, 나머지는 Regular
+        tabBarLabel: ({ focused, color, children }) => (
+          <Text
+            style={{
+              fontFamily: focused ? fonts.bold : fonts.regular,
+              fontSize: 11,
+              color,
+            }}
+          >
+            {children}
+          </Text>
+        ),
         tabBarItemStyle: { paddingVertical: 10 },
-        tabBarActiveTintColor: "#111418",   // 선택된 탭 "글자" 색
-        tabBarInactiveTintColor: "#A2A0AA", // 선택 안 된 탭 "글자" 색
+        tabBarActiveTintColor: colors.textPrimary,  // 선택된 탭 "글자" 색
+        tabBarInactiveTintColor: colors.textSecondary, // 선택 안 된 탭 "글자" 색
       }}
     >
       <Tabs.Screen
