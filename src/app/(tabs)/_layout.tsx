@@ -7,7 +7,7 @@ import {
   HomeIcon,
   PropertyIcon,
   SettingsIcon,
-} from "@/componets/icons/tab-icons";
+} from "@/components/icons/tab-icons";
 
 // 탭 아이콘 색 (Figma 기준, 1-4에서 테마 파일로 옮길 예정)
 const ICON_ACTIVE = "#C9466A";   // 선택된 탭: 진한 분홍

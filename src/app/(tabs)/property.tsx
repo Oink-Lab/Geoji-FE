@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 
-export default function HomeScreen() {
+export default function PropertyScreen() {
   return (
     <View style={styles.container}>
       <Text>자산</Text>
