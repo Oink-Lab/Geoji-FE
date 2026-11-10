@@ -25,6 +25,9 @@ export const colors = {
 
   // 챌린지 캘린더 배경
   challengeDay: "#E9F1FE",
+
+  //보조 버튼 배경
+  grayLight:"#F7F8F9" 
 } as const;
 
 // 굵기별 글꼴 이름 (_layout.tsx의 useFonts에 등록한 이름과 같아야 함)
@@ -45,6 +48,8 @@ export const typography = {
   label: { fontFamily: fonts.regular, fontSize: 11 },
   calendarDay: { fontFamily: fonts.medium, fontSize: 12 },
   calendarAmount: { fontFamily: fonts.medium, fontSize: 9 },
+  button: {fontFamily: fonts.bold, fontSize: 16}, // 큰버튼
+  buttonSmall : {fontFamily: fonts.bold, fontSize: 13}, // 작은 버튼
 } as const;
 
 // 간격 (Figma에서 반복되는 값)
