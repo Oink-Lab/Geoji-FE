@@ -50,6 +50,7 @@ export const typography = {
   calendarAmount: { fontFamily: fonts.medium, fontSize: 9 },
   button: {fontFamily: fonts.bold, fontSize: 16}, // 큰버튼
   buttonSmall : {fontFamily: fonts.bold, fontSize: 13}, // 작은 버튼
+  bubble : {fontFamily: fonts.bold, fontSize: 13}, // 말풍선 
 } as const;
 
 // 간격 (Figma에서 반복되는 값)
@@ -61,12 +62,16 @@ export const spacing = {
   lg: 14,
   xl: 16,
   screen: 20, // 화면 좌우 여백
+  cardX: 18,
+  bubbleY: 10, // 말풍선 위아래 여백
 } as const;
 
 // 모서리 둥글기
 export const radius = {
+  xs: 4,
   sm: 10,    // 캘린더 날짜 칸
   md: 16,    // 말풍선
   lg: 18,    // 챌린지 배너
+
   pill: 999, // 알약 모양 (버튼, 탭 바)
 } as const;

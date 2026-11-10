@@ -1,7 +1,7 @@
 import { type ReactNode } from "react";
 import { StyleSheet, View } from "react-native";
 
-import { colors, radius } from "@/constants/theme";
+import { colors, radius, spacing } from "@/constants/theme";
 
 type CardProps = {
   children: ReactNode;
@@ -22,8 +22,8 @@ export function Card({
 const styles = StyleSheet.create({
   card: {
     borderRadius: radius.lg,
-    paddingVertical: 14,
-    paddingLeft: 18,
-    paddingRight: 14,
+    paddingVertical: spacing.lg,
+    paddingLeft: spacing.cardX,
+    paddingRight: spacing.lg,
   },
 });
