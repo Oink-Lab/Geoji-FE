@@ -21,20 +21,7 @@ export function HomeIcon({ color, size = 24 }: IconProps) {
   );
 }
 
-export function PropertyIcon({ color, size = 24 }: IconProps) {
-  // size = 24: 크기를 안 주면 24로 그림 (기본값)
-  return (
-    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-      <Path
-        d="M3.4 7.60001H17.1M17.1 7.60001L16 4.20001L3.4 7.60001V19.6H20.6V16M17.1 7.60001H20.6V12.6M20.6 12.6V16M20.6 12.6H16.6C16.1491 12.6 15.7167 12.7791 15.3979 13.0979C15.0791 13.4167 14.9 13.8491 14.9 14.3C14.9 14.7509 15.0791 15.1833 15.3979 15.5021C15.7167 15.8209 16.1491 16 16.6 16H20.6M20.6 12.6H21V16H20.6"
-        stroke={color}
-        strokeWidth={1.9}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </Svg>
-  );
-}
+
 
 export function ChallengeIcon({ color, size = 24 }: IconProps) {
   // size = 24: 크기를 안 주면 24로 그림 (기본값)

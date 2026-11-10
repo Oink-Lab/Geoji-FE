@@ -75,3 +75,13 @@ export const radius = {
 
   pill: 999, // 알약 모양 (버튼, 탭 바)
 } as const;
+
+// 하단 탭 바 (Figma: TabBar V0.4)
+export const tabBar = {
+  height: 65,       // 탭 바 높이
+  sideMargin: 15,   // 화면 좌우 끝과의 간격
+  bottomLift: 10,   // insets.bottom에서 빼는 값 (클수록 아래로 내려감)
+  minBottom: 16,    // 홈 인디케이터 없는 기기에서의 최소 아래 간격
+  itemPaddingY: 7,  // 탭 버튼 위아래 여백
+  labelSize: 9,     // 탭 글자 크기
+} as const;
