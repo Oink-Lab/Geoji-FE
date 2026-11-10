@@ -45,9 +45,9 @@
 | 1-1 | Expo 프로젝트 생성, GitHub(Oink-Lab/Geoji-FE) 연결 | 완료 |
 | 1-2 | 폴더 구조 + 샘플 정리 | 완료 |
 | 1-3 | 하단 탭 + Figma 라인 아이콘 | 완료 (5개로 만듦) |
-| 1-3+ | **탭 4개로 정리** (자산 탭 · 화면 · 아이콘 제거) | |
+| 1-3+ | **탭 4개로 정리** (자산 탭 · 화면 · 아이콘 제거) | 완료 |
 | 1-4 | 테마 토큰 + Noto Sans KR | 완료 |
-| 1-5 A | 공통 컴포넌트: AppText, Button, Card, SpeechBubble | 진행 중 |
+| 1-5 A | 공통 컴포넌트: AppText, Button, Card, SpeechBubble | 완료 |
 | 1-5 B | 공통 컴포넌트: AmountText (색상·부호 규칙 내장), Header | |
 | 1-6 | 데이터 타입 (Transaction, Challenge) + Mock 데이터 + 홈 정적 레이아웃 (요약, 배너, 캐릭터 + 말풍선) | |
 
