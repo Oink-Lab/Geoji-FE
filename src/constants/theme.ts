@@ -54,6 +54,8 @@ export const typography = {
   buttonMedium: { fontFamily: fonts.bold, fontSize: 15 },  // 중간 버튼 (팝업)
   buttonSmall: { fontFamily: fonts.medium, fontSize: 13 }, // 작은 버튼 (챌린지 포기하기)
   bubble : {fontFamily: fonts.bold, fontSize: 13}, // 말풍선 
+  pageTitle: { fontFamily: fonts.bold, fontSize: 16 },  // 하위 화면 헤더 제목
+  backIcon: { fontFamily: fonts.regular, fontSize: 24 }, // 뒤로 가기 ‹
 } as const;
 
 // 간격 (Figma에서 반복되는 값)
@@ -75,7 +77,6 @@ export const radius = {
   sm: 10,    // 캘린더 날짜 칸
   md: 16,    // 말풍선
   lg: 18,    // 챌린지 배너
-
   pill: 999, // 알약 모양 (탭 바)
 } as const;
 

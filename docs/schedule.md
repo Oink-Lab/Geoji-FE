@@ -48,7 +48,7 @@
 | 1-3+ | **탭 4개로 정리** (자산 탭 · 화면 · 아이콘 제거) | 완료 |
 | 1-4 | 테마 토큰 + Noto Sans KR | 완료 |
 | 1-5 A | 공통 컴포넌트: AppText, Button, Card, SpeechBubble | 완료 |
-| 1-5 B | 공통 컴포넌트: AmountText (색상·부호 규칙 내장), Header | |
+| 1-5 B | 공통 컴포넌트: AmountText (색상·부호 규칙 내장), Header | 완료 (TabHeader · PageHeader) |
 | 1-6 | 데이터 타입 (Transaction, Challenge) + Mock 데이터 + 홈 정적 레이아웃 (요약, 배너, 캐릭터 + 말풍선) | |
 
 ---
