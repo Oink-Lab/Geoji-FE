@@ -98,3 +98,10 @@ export const tabBar = {
   itemPaddingY: 7,  // 탭 버튼 위아래 여백
   labelSize: 9,     // 탭 글자 크기
 } as const;
+
+// 홈 캐릭터 (Figma: AIBot, Header Profile)
+export const character = {
+  size: 72,         // 돼지 캐릭터 크기
+  bubbleIndent: 35, // 말풍선을 캐릭터보다 오른쪽으로 들여쓰기
+  profileSize: 41,  // 헤더 프로필 동그라미 크기
+} as const;

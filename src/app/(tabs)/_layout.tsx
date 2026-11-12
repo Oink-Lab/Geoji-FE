@@ -1,8 +1,8 @@
 import { colors, fonts, radius, tabBar } from "@/constants/theme";
 import { Tabs } from "expo-router/js-tabs";
 import { Text } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
+import { useTabBarSpace } from "@/hooks/use-tab-bar-space";
 import {
   AnalysisIcon,
   ChallengeIcon,
@@ -14,7 +14,7 @@ const ICON_ACTIVE = colors.primary;   // 선택된 탭: 진한 분홍
 const ICON_INACTIVE = colors.primaryLight; // 선택 안 된 탭: 연분홍
 
 export default function TabLayout() {
-  const insets = useSafeAreaInsets();
+  const { bottom } = useTabBarSpace();
 
   return (
     <Tabs
@@ -23,7 +23,7 @@ export default function TabLayout() {
         headerShown: false, // 기본 헤더(탭 이름 띠) 숨김 → 화면마다 TabHeader를 직접 그림
         tabBarStyle: {
           position: "absolute",
-          bottom: Math.max(insets.bottom - tabBar.bottomLift, tabBar.minBottom),
+          bottom, // 계산은 useTabBarSpace에서 (화면 아래 여백과 같은 식을 쓰려고)
           marginHorizontal: tabBar.sideMargin,
           height: tabBar.height,
           borderRadius: radius.pill,
