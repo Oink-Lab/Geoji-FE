@@ -20,6 +20,7 @@ export default function TabLayout() {
     <Tabs
       safeAreaInsets={{ bottom: 0 }}
       screenOptions={{
+        headerShown: false, // 기본 헤더(탭 이름 띠) 숨김 → 화면마다 TabHeader를 직접 그림
         tabBarStyle: {
           position: "absolute",
           bottom: Math.max(insets.bottom - tabBar.bottomLift, tabBar.minBottom),
