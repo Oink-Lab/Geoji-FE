@@ -13,6 +13,7 @@ type ButtonProps = {
   size?: Size;                  // 크기 (기본: large)
   disabled?: boolean;           // 비활성화 여부
   style?: StyleProp<ViewStyle>; // 바깥 배치용 (예: 팝업에서 flex: 1로 반씩 나누기)
+  
 };
 
 // 색 종류별 배경색 + 글자색
@@ -31,6 +32,7 @@ const SIZE_TEXT = {
   large: "button",
   medium: "buttonMedium",
   small: "buttonSmall",
+  pill: "buttonPill",
 } as const;
 
 export function Button({

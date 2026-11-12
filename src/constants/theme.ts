@@ -56,6 +56,7 @@ export const typography = {
   bubble : {fontFamily: fonts.bold, fontSize: 13}, // 말풍선 
   pageTitle: { fontFamily: fonts.bold, fontSize: 16 },  // 하위 화면 헤더 제목
   backIcon: { fontFamily: fonts.regular, fontSize: 24 }, // 뒤로 가기 ‹
+  buttonPill: { fontFamily: fonts.bold, fontSize: 13 }, // 알약 버튼 (배너 "시작 ›")
 } as const;
 
 // 간격 (Figma에서 반복되는 값)
@@ -66,7 +67,7 @@ export const spacing = {
   md: 8,
   lg: 14,
   xl: 16,
-  screen: 20, // 화면 좌우 여백
+  screen: 25, // 화면 좌우 여백
   cardX: 18,
   bubbleY: 10, // 말풍선 위아래 여백
 } as const;
@@ -85,6 +86,7 @@ export const buttonSize = {
   large: { height: 49, borderRadius: 16 },  // 화면 하단 (시작하기, 기록하기)
   medium: { height: 46, borderRadius: 14 }, // 팝업 (취소/삭제, 계속할래/포기)
   small: { height: 44, borderRadius: 12 },  // 챌린지 포기하기
+  pill: {height:30 , borderRadius: 999, paddingHorizontal:14 }
 } as const;
 
 // 하단 탭 바 (Figma: TabBar V0.4)
