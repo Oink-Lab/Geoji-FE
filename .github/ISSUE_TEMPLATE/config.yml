@@ -1,0 +1,2 @@
+# 빈 이슈를 막아서 New issue를 누르면 항상 유형 선택 창이 뜨게 함
+blank_issues_enabled: false

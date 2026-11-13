@@ -33,9 +33,16 @@
 - 금액 부호: 일반 가계부는 부호 없이 색으로만. `+`(아낌) / `-`(초과)는 챌린지 하루 결과에만 사용
 
 ## Git
-- 작업 브랜치: `dev` (2주차부터 화면마다 `feature/이름` → PR → dev)
+- 기본 브랜치: `dev` (모든 PR 대상). `main`은 체크포인트마다 `dev` → `main`
+- **모든 작업은 이 순서로** (`dev`에 직접 커밋하지 않음):
+  1. GitHub 이슈 생성 (`.github/ISSUE_TEMPLATE/` 유형 선택) → 이슈 번호 받기
+  2. 최신 `dev`에서 이슈 번호로 브랜치 생성: `feature/번호-기능명` (버그 `fix/`, 디자인 `style/`, 문서 `docs/`, 설정 `chore/`)
+  3. 개발 · 커밋
+  4. push
+  5. `dev`로 PR (`.github/pull_request_template.md`, 본문에 `closes #번호`) → 리뷰 후 Squash and Merge
+- 이슈 제목: `[종류] 내용` / PR 제목: `종류: 내용 (#번호)`
 - 커밋 메시지: `종류: 내용`
-  - feat(기능) / fix(버그) / style(디자인) / chore(설정·정리) / docs(문서)
+  - feat(기능) / fix(버그) / style(디자인) / refactor(구조 개선) / chore(설정·정리) / docs(문서) / test(테스트)
 
 ## 일정
 - 새 작업을 시작하기 전에 `docs/schedule.md`에서 현재 주차 작업을 확인
