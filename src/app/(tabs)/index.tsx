@@ -1,5 +1,6 @@
 import { getActiveChallenge } from "@/api/challenges";
 import { getTransactions } from "@/api/transactions";
+import { MonthCalendar } from "@/components/home/month-calendar";
 import { RunningBanner } from "@/components/home/running-banner";
 import { StartBanner } from "@/components/home/start-banner";
 import { AmountText } from "@/components/ui/amount-text";
@@ -11,6 +12,7 @@ import { useTabBarSpace } from "@/hooks/use-tab-bar-space";
 import { MOCK_TODAY } from "@/mocks/today";
 import { Challenge } from "@/types/challenge";
 import { Transaction } from "@/types/transaction";
+import { getCalendarCells } from "@/utils/calendar";
 import { getDayNumber, getTodayAvailable } from "@/utils/challenge";
 import { formatMonth } from "@/utils/date";
 import { sumAmount } from "@/utils/transaction";
@@ -18,7 +20,6 @@ import { Image } from "expo-image";
 import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
 
 
 export default function HomeScreen() {
@@ -68,6 +69,8 @@ export default function HomeScreen() {
       ) : (<StartBanner />)}
 
       {/* ④ 월 캘린더 — 2주차 */}
+      <MonthCalendar cells={getCalendarCells(month, transactions, MOCK_TODAY)} />
+
       {/* ⑤ 캐릭터 + 말풍선 — 4단계 */}
       <View style={styles.bot}>
         <SpeechBubble message="또 배달이야? 냉장고는 인테리어냐?" style={styles.bubble} />

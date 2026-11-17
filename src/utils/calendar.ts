@@ -3,6 +3,18 @@ import { Transaction } from "@/types/transaction";
 import dayjs from "dayjs";
 import { sumAmount } from "./transaction";
 
+// 칸 목록을 7개씩 잘라서 줄(주)로 만들기
+export function splitIntoWeeks(cells: CalendarCell[]): CalendarCell[][] {
+  const weeks: CalendarCell[][] = [];
+  for (let i = 0; i < cells.length; i += 7) {
+    const week = cells.slice(i, i + 7);       // 7개 잘라내기
+    while (week.length < 7) week.push(null);  // 마지막 줄이 모자라면 빈칸으로 채우기
+    weeks.push(week);
+  }
+  return weeks;
+}
+
+
 // 한 달 캘린더 칸 목록 (일요일 시작, 1일 앞은 빈칸 null)
 // getMonthDates("2026-09") → [null, null, "2026-09-01", ..., "2026-09-30"]
 export function getMonthDates(month: string): (string | null)[] {

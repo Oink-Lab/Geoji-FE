@@ -30,6 +30,8 @@ export const colors = {
   grayLight: "#F5F6F8",    // 보조 버튼 (취소, 포기)
   grayDisabled: "#E1E4E8", // 비활성 버튼
   danger: "#E10F00",       // 삭제 버튼 (expense와 값은 같지만 뜻이 달라서 따로 둠)
+
+  sunday: "#E10F00", // 캘린더 일요일 글자
 } as const;
 
 // 굵기별 글꼴 이름 (_layout.tsx의 useFonts에 등록한 이름과 같아야 함)
@@ -104,4 +106,11 @@ export const character = {
   size: 72,         // 돼지 캐릭터 크기
   bubbleIndent: 35, // 말풍선을 캐릭터보다 오른쪽으로 들여쓰기
   profileSize: 41,  // 헤더 프로필 동그라미 크기
+} as const;
+
+
+//홈 캘린더 (Figma: Calendar)
+export const calendar ={
+  cellHeight: 66, //날짜 칸 높이
+  cellPaddingTop: 7, // 날짜 칸 위 여백
 } as const;
