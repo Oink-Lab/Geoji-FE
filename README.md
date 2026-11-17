@@ -38,7 +38,7 @@
 | 역할 | 담당자 | 담당 |
 | --- | --- | --- |
 | 프론트엔드 · 디자인 | 이수빈 | 앱 전체 화면, Figma 디자인, 공통 컴포넌트 / 디자인 토큰, 빌드 · 배포 |
-| 백엔드 | (이름) | API, 인증, AI 연동 ([Geoji-BE](https://github.com/Oink-Lab/Geoji-BE)), 프론트엔드 PR 리뷰 |
+| 백엔드 | 권준열 | API, 인증, AI 연동 ([Geoji-BE](https://github.com/Oink-Lab/Geoji-BE)), 프론트엔드 PR 리뷰 |
 
 > 프론트엔드는 1인 개발입니다. 1월 초까지 Mock 데이터로 전체 화면을 완성한 뒤 API를 연동합니다.
 
