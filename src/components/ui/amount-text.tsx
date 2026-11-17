@@ -31,10 +31,13 @@ export function AmountText({
   // 아낌이면 true. 0원(딱 맞게 쓴 날)은 일단 아낌으로 봄 → 팀 확인 필요
   const isSaved = amount >= 0;
 
-  // 색: 결과면 아낌 초록 / 초과 빨강, 아니면 표에서 꺼내기
+  // 색: 결과면 아낌 초록 / 초과 빨강, 아니면 표에서 꺼내기, 0원이면 회색
+  const isZeroLedger = amount === 0 && (type === "expense" || type === "income"); // 지출·입금 0원
   const color = isResult
     ? (isSaved ? colors.income : colors.expense)
-    : TYPE_COLORS[type];
+    : isZeroLedger
+      ? colors.textTertiary // 회색
+      : TYPE_COLORS[type];
 
   // 부호: 결과일 때만
   const sign = isResult ? (isSaved ? "+" : "-") : "";

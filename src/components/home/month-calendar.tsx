@@ -38,7 +38,9 @@ export function MonthCalendar({ cells }: MonthCalendarProps) {
                         <View key={i} style={[styles.cell, cell?.isToday && styles.today]}>
                             {cell && (
                                 <>
-                                    <AppText variant="calendarDay">{cell.day}</AppText>
+                                    <AppText 
+                                       variant="calendarDay"
+                                       color={i===0 ? colors.sunday : colors.textPrimary}>{cell.day}</AppText>
                                     {cell.expense > 0 && (
                                         <AmountText type="expense" amount={cell.expense} variant="calendarAmount" short />
                                     )}

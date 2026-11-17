@@ -1,5 +1,5 @@
 import { getActiveChallenge } from "@/api/challenges";
-import { getTransactions } from "@/api/transactions";
+import { getTransactions, hasAnyTransaction } from "@/api/transactions";
 import { MonthCalendar } from "@/components/home/month-calendar";
 import { MonthPicker } from "@/components/home/month-picker";
 import { RunningBanner } from "@/components/home/running-banner";
@@ -29,6 +29,11 @@ export default function HomeScreen() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [challenge, setChallenge] = useState<Challenge | null>(null);
   const { space } = useTabBarSpace(); // 탭 바가 차지하는 높이
+  const [hasRecord, setHasRecord] = useState(true); // 기록이 하나라도 있는지
+
+  useEffect(() => {
+    hasAnyTransaction().then((data) => setHasRecord(data));
+  }, []);
 
   // 진행 중인 챌린지는 달과 상관없으니 처음 한 번만
   useEffect(() => {
@@ -48,7 +53,7 @@ export default function HomeScreen() {
       {/* ① 헤더 */}
       <TabHeader
         title={`${formatMonth(month)} ▾`}
-        onTitlePress={()=> setPickerOpen(true)}
+        onTitlePress={() => setPickerOpen(true)}
         right={
           <View style={styles.profile}>
             <Image source={require("@/assets/images/pig-face.png")} style={styles.profileImage} contentFit="contain" />
@@ -76,7 +81,8 @@ export default function HomeScreen() {
 
       {/* ⑤ 캐릭터 + 말풍선 — 4단계 */}
       <View style={styles.bot}>
-        <SpeechBubble message="또 배달이야? 냉장고는 인테리어냐?" style={styles.bubble} />
+        <SpeechBubble 
+        message={hasRecord?"또 배달이야? 냉장고는 인테리어냐?":"날짜 눌러서 첫 기록 해볼래?" } style={styles.bubble} />
         <Image source={require("@/assets/images/pig-grumpy.png")} style={styles.character} contentFit="contain" />
       </View>
 
