@@ -53,3 +53,20 @@ export function getCalendarCells(
     };
   });
 }
+
+// 연도는 올해 기준 앞뒤 몇 년까지 고를 수 있는지
+const YEAR_RANGE = 10;
+
+// 고를 수 있는 연도: 2016 ~ 2036 (올해가 2026이면)
+export function getYearOptions(today: string): number[] {
+  const year = dayjs(today).year();
+  const years: number[] = [];
+  for (let y = year - YEAR_RANGE; y <= year + YEAR_RANGE; y++) {
+    years.push(y);
+  }
+  return years;
+}
+
+// 고를 수 있는 월: 항상 1 ~ 12월
+export const MONTH_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+

@@ -32,6 +32,10 @@ export const colors = {
   danger: "#E10F00",       // 삭제 버튼 (expense와 값은 같지만 뜻이 달라서 따로 둠)
 
   sunday: "#E10F00", // 캘린더 일요일 글자
+
+  dim: "rgba(0, 0, 0, 0.35)", // 바텀시트 뒤 어두운 배경
+  handle: "#ECEEF1",          // 바텀시트 손잡이 막대
+
 } as const;
 
 // 굵기별 글꼴 이름 (_layout.tsx의 useFonts에 등록한 이름과 같아야 함)
@@ -55,10 +59,13 @@ export const typography = {
   button: { fontFamily: fonts.bold, fontSize: 16 },        // 큰 버튼 (화면 하단)
   buttonMedium: { fontFamily: fonts.bold, fontSize: 15 },  // 중간 버튼 (팝업)
   buttonSmall: { fontFamily: fonts.medium, fontSize: 13 }, // 작은 버튼 (챌린지 포기하기)
-  bubble : {fontFamily: fonts.bold, fontSize: 13}, // 말풍선 
+  bubble: { fontFamily: fonts.bold, fontSize: 13 }, // 말풍선 
   pageTitle: { fontFamily: fonts.bold, fontSize: 16 },  // 하위 화면 헤더 제목
   backIcon: { fontFamily: fonts.regular, fontSize: 24 }, // 뒤로 가기 ‹
   buttonPill: { fontFamily: fonts.bold, fontSize: 13 }, // 알약 버튼 (배너 "시작 ›")
+  sheetTitle: { fontFamily: fonts.bold, fontSize: 18 },    // 바텀시트 제목
+  wheelItem: { fontFamily: fonts.regular, fontSize: 16 },  // 고른 달
+  wheelItemSelected: { fontFamily: fonts.bold, fontSize: 16 }, // 굴리는 줄 글자
 } as const;
 
 // 간격 (Figma에서 반복되는 값)
@@ -88,7 +95,7 @@ export const buttonSize = {
   large: { height: 49, borderRadius: 16 },  // 화면 하단 (시작하기, 기록하기)
   medium: { height: 46, borderRadius: 14 }, // 팝업 (취소/삭제, 계속할래/포기)
   small: { height: 44, borderRadius: 12 },  // 챌린지 포기하기
-  pill: {height:30 , borderRadius: 999, paddingHorizontal:14 }
+  pill: { height: 30, borderRadius: 999, paddingHorizontal: 14 }
 } as const;
 
 // 하단 탭 바 (Figma: TabBar V0.4)
@@ -110,7 +117,21 @@ export const character = {
 
 
 //홈 캘린더 (Figma: Calendar)
-export const calendar ={
+export const calendar = {
   cellHeight: 66, //날짜 칸 높이
   cellPaddingTop: 7, // 날짜 칸 위 여백
+} as const;
+
+// 바텀시트 (Figma: B-2, 1-0)
+export const sheet = {
+  radius: 24,        // 위쪽 모서리
+  handleWidth: 40,   // 손잡이 막대
+  handleHeight: 4,
+} as const;
+
+
+// 굴려서 고르는 줄 (Figma: 1-0 월 선택)
+export const wheelPicker = {
+  itemHeight: 44,  // 칸 하나 높이
+  visibleCount: 5, // 한 번에 보이는 칸 수
 } as const;
