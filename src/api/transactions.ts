@@ -6,3 +6,9 @@ export async function getTransactions(month: string): Promise<Transaction[]> {
   // TODO(1월 API 연동): 이 안만 서버 요청으로 바꾸기
   return MOCK_TRANSACTIONS.filter((t) => t.date.startsWith(month));
 }
+
+// 기록이 하나라도 있는지 (없으면 홈에 "첫 기록" 말풍선)
+export async function hasAnyTransaction(): Promise<boolean> {
+  // TODO(1월 API 연동): 이 안만 서버 요청으로 바꾸기
+  return MOCK_TRANSACTIONS.length > 0;
+}

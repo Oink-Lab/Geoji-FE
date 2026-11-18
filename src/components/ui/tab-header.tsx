@@ -1,18 +1,21 @@
 import { type ReactNode } from "react";
-import { StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 
 import { AppText } from "./app-text";
 
 type TabHeaderProps = {
   title: string;
   right?: ReactNode; // 오른쪽에 넣을 것 (없어도 됨)
+  onTitlePress?: () => void; // 제목을 눌렀을 때 (없으면 그냥 글자)
 };
 
-export function TabHeader({ title, right }: TabHeaderProps) {
+export function TabHeader({ title, right, onTitlePress }: TabHeaderProps) {
   return (
     <View style={styles.header}>
       {/* 왼쪽: 큰 제목 (22 Bold) */}
-      <AppText variant="title">{title}</AppText>
+      <Pressable onPress={onTitlePress} disabled={!onTitlePress}>
+        <AppText variant="title">{title}</AppText>
+      </Pressable>
       {right}
     </View>
   );

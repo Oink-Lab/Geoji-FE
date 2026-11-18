@@ -1,5 +1,7 @@
 import { getActiveChallenge } from "@/api/challenges";
-import { getTransactions } from "@/api/transactions";
+import { getTransactions, hasAnyTransaction } from "@/api/transactions";
+import { MonthCalendar } from "@/components/home/month-calendar";
+import { MonthPicker } from "@/components/home/month-picker";
 import { RunningBanner } from "@/components/home/running-banner";
 import { StartBanner } from "@/components/home/start-banner";
 import { AmountText } from "@/components/ui/amount-text";
@@ -11,6 +13,7 @@ import { useTabBarSpace } from "@/hooks/use-tab-bar-space";
 import { MOCK_TODAY } from "@/mocks/today";
 import { Challenge } from "@/types/challenge";
 import { Transaction } from "@/types/transaction";
+import { getCalendarCells } from "@/utils/calendar";
 import { getDayNumber, getTodayAvailable } from "@/utils/challenge";
 import { formatMonth } from "@/utils/date";
 import { sumAmount } from "@/utils/transaction";
@@ -20,12 +23,17 @@ import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 
-
 export default function HomeScreen() {
-  const month = "2026-09"; // 2주차에 월 이동 기능으로 바꾼다
+  const [month, setMonth] = useState(MOCK_TODAY.slice(0, 7)); // "2026-09-22" → "2026-09"
+  const [pickerOpen, setPickerOpen] = useState(false);        // 월 선택 시트가 열렸는지
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [challenge, setChallenge] = useState<Challenge | null>(null);
   const { space } = useTabBarSpace(); // 탭 바가 차지하는 높이
+  const [hasRecord, setHasRecord] = useState(true); // 기록이 하나라도 있는지
+
+  useEffect(() => {
+    hasAnyTransaction().then((data) => setHasRecord(data));
+  }, []);
 
   // 진행 중인 챌린지는 달과 상관없으니 처음 한 번만
   useEffect(() => {
@@ -45,6 +53,7 @@ export default function HomeScreen() {
       {/* ① 헤더 */}
       <TabHeader
         title={`${formatMonth(month)} ▾`}
+        onTitlePress={() => setPickerOpen(true)}
         right={
           <View style={styles.profile}>
             <Image source={require("@/assets/images/pig-face.png")} style={styles.profileImage} contentFit="contain" />
@@ -68,11 +77,27 @@ export default function HomeScreen() {
       ) : (<StartBanner />)}
 
       {/* ④ 월 캘린더 — 2주차 */}
+      <MonthCalendar cells={getCalendarCells(month, transactions, MOCK_TODAY)} />
+
       {/* ⑤ 캐릭터 + 말풍선 — 4단계 */}
       <View style={styles.bot}>
-        <SpeechBubble message="또 배달이야? 냉장고는 인테리어냐?" style={styles.bubble} />
+        <SpeechBubble 
+        message={hasRecord?"또 배달이야? 냉장고는 인테리어냐?":"날짜 눌러서 첫 기록 해볼래?" } style={styles.bubble} />
         <Image source={require("@/assets/images/pig-grumpy.png")} style={styles.character} contentFit="contain" />
       </View>
+
+      <MonthPicker
+        visible={pickerOpen}
+        selected={month}
+        today={MOCK_TODAY}
+        onSelect={(m) => {
+          setMonth(m);
+          setPickerOpen(false);
+        }}
+        onClose={() => setPickerOpen(false)}
+      />
+
+
 
     </SafeAreaView>
   );
